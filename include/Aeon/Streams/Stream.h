@@ -6,28 +6,67 @@ namespace Aeon
 namespace Streams
 {
 
+/*!
+ * \brief Base class for streams
+ *
+ * This class serves as the base class for all streams. When implementing a new steam, derive from this class.
+ */
 class Stream
 {
 public:
-	class AccessMode //Workaround for enum classes not supporting bitflags
+	/*!
+ 	 * The available access modes for this stream. This allows an implementation to ask the stream for
+ 	 * it's access permissions.
+ 	 *
+ 	 * This is implemented as a anonymous enum within a class, since enum classes do not support bitflags
+ 	 * at this moment.
+ 	 */
+	class AccessMode 
 	{
 	public:
 		enum
 		{
-			READ			= 1,
-			WRITE			= 2,
-			READ_WRITE		= 3
+			READ			= 1, /**< enum Read-Only */
+			WRITE			= 2, /**< enum Write-Only */
+			READ_WRITE		= 3  /**< enum Read-Write (Full access) */
 		};
 	};
 
+	/*!
+ 	 * The seek direction used in the Stream::Seek function. This determines the behaviour of the pos
+ 	 * parameter.
+ 	 */ 
 	enum class SeekDirection
 	{
-		Begin,
-		Current,
-		End
+		Begin,				/**< enum Seek forwards from the beginning */
+		Current,			/**< enum Seek forwards from wherever the read pointer currently is */
+		End					/**< enum Seek backwards from the end */
 	};
 
+	/*!
+	 * \brief Basic constructor for Stream
+	 *
+	 * This constructor will give the stream the default name as configured in the 
+	 * AEON_STREAMS_DEFAULT_STREAM_NAME macro.
+	 *
+	 * When no parameter is given, Read-only mode is assumed.
+	 *
+	 * \param access_mode The access mode for the stream.
+	 * \sa AccessMode
+ 	 */
 	Stream(int access_mode = AccessMode::READ);
+
+	/*!
+	 * \brief Prefered constructor for Stream
+	 *
+	 * This constructor will create a named stream.
+	 *
+	 * When no parameter is given, Read-only mode is assumed.
+	 *
+	 * \param name The name of the stream. Does not need to be unique.
+	 * \param access_mode The access mode for the stream.
+	 * \sa AccessMode
+	 */
 	Stream(const std::string &name, int access_mode = AccessMode::READ);
 
 	virtual ~Stream();
