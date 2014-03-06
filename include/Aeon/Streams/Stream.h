@@ -193,19 +193,62 @@ public:
 	 *
 	 * This position changes on successful reading, writing and seeking.
 	 *
-	 * \return The position 
+	 * \return The position of the read/write index. 
 	 */
 	virtual size_t					tell() const = 0;
 
+	/*!
+	 * Check if the stream is at it's end. This may be an actual end of file,
+	 * or when the read/write index is at the end of a buffer in a MemoryStream.
+	 *
+	 * What this actually means may vary between stream types.
+	 *
+	 * \return True if at the end of the stream. Returns true on error.
+	 */
 	virtual bool					eof() const = 0;
 
+	/*!
+	 * Get the current size of the stream.
+	 *
+	 * What this actually means may vary between stream types. In some cases, a size
+	 * may not be applicable.
+	 *
+	 * \return The size of the stream, if applicable. Returns 0 on error.
+	 */
 	size_t							size() const { return m_size; }
+
+	/*!
+	 * Close the stream.
+	 *
+	 * What this actually means may vary between stream types. In some cases, closing
+	 * may not be applicable, in which case calling this function has no effect.
+	 *
+	 * This function is automatically called by the destructor.
+	 */
 	virtual void					close() {}
 
+	/*!
+	 * Flush the stream. This ensures that cached data is processed.
+	 *
+	 * What this actually means may vary between stream types. In some cases, flushing
+	 * may not be applicable, in which case calling this function has no effect.
+	 */
 	virtual void					flush() {}
 
+	/*!
+	 * Check if the stream is still good for use, and no errors were detected.
+	 *
+	 * \return False when an error was detected.
+	 */
 	virtual bool					good() { return false; }
 
+	/*!
+	 * Read the entire stream into a BufferPtr.
+	 *
+	 * \return A BufferPtr with the contents of this stream. Depending on the stream type,
+	 * this may not be a copy.
+	 * \sa Buffer
+	 */
 	virtual BufferPtr				get_as_buffer();
 
 protected:
