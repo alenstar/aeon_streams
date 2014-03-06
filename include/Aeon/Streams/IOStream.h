@@ -1,7 +1,5 @@
-#ifndef AeonIOStream_h__
-#define AeonIOStream_h__
-
-#include "Aeon/Streams/Stream.h"
+#ifndef AEON_STREAMS_IOSTREAM_H__
+#define AEON_STREAMS_IOSTREAM_H__
 
 namespace Aeon
 {
@@ -31,4 +29,4 @@ public:
 
 } //namespace Aeon
 
-#endif // AeonIOStream_h__
+#endif /* AEON_STREAMS_IOSTREAM_H__ */

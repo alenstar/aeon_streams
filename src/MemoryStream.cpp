@@ -1,4 +1,11 @@
-#include "Aeon/Aeon.h"
+#include "Aeon/Streams/Config.h"
+
+#include <string>
+#include <memory>
+#include <string.h>
+
+#include "Aeon/Streams/Buffer.h"
+#include "Aeon/Streams/Stream.h"
 #include "Aeon/Streams/MemoryStream.h"
 
 #ifdef AEON_USE_AEON_CONSOLE_LIBRARY
@@ -150,7 +157,7 @@ size_t MemoryStream::read_line(std::string &str)
 
 	std::string line;
 	size_t character_offset = 0;
-	for (int i = 0; i < AEON_STREAM_MAX_TEXT_LINE_LENGTH; ++i)
+	for (int i = 0; i < AEON_STREAMS_MAX_TEXT_LINE_LENGTH; ++i)
 	{
 		//Can we still read a character?
 		if (m_buffer_offset + character_offset >= m_buffer->size())

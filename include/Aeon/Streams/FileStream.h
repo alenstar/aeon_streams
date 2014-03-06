@@ -1,7 +1,5 @@
-#ifndef AeonFileStream_h__
-#define AeonFileStream_h__
-
-#include "Aeon/Streams/Stream.h"
+#ifndef AEON_STREAMS_FILESTREAM_H__
+#define AEON_STREAMS_FILESTREAM_H__
 
 namespace Aeon
 {
@@ -39,4 +37,4 @@ typedef std::shared_ptr<FileStream> FileStreamPtr;
 
 } //namespace Aeon
 
-#endif // AeonFileStream_h__
+#endif /* AEON_STREAMS_FILESTREAM_H__ */

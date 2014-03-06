@@ -1,7 +1,5 @@
-#ifndef AeonDataStream_h__
-#define AeonDataStream_h__
-
-#include "Aeon/Utility/Buffer.h"
+#ifndef AEON_STREAMS_STREAM_H__
+#define AEON_STREAMS_STREAM_H__
 
 namespace Aeon
 {
@@ -71,4 +69,4 @@ typedef std::shared_ptr<Stream> StreamPtr;
 
 } //namespace Aeon
 
-#endif // AeonDataStream_h__
+#endif /* AEON_STREAMS_STREAM_H__ */

@@ -1,4 +1,9 @@
-#include "Aeon/Aeon.h"
+#include "Aeon/Streams/Config.h"
+
+#include <string>
+#include <memory>
+
+#include "Aeon/Streams/Buffer.h"
 #include "Aeon/Streams/Stream.h"
 
 #ifdef AEON_USE_AEON_CONSOLE_LIBRARY
@@ -10,7 +15,7 @@ namespace Aeon
 
 Stream::Stream(int access_mode /*= AccessMode::READ*/)
 :
-m_name(AEON_STREAM_DEFAULT_NAME),
+m_name(AEON_STREAMS_DEFAULT_STREAM_NAME),
 m_size(0),
 m_access_mode(access_mode)
 {}

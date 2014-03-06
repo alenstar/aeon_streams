@@ -1,5 +1,10 @@
-#include "Aeon/Aeon.h"
-#include "Aeon/Utility/Buffer.h"
+#include "Aeon/Streams/Config.h"
+
+#include <string>
+#include <memory>
+#include <string.h>
+
+#include "Aeon/Streams/Buffer.h"
 
 #ifdef AEON_USE_AEON_CONSOLE_LIBRARY
 #include <Aeon/Console/Console.h>
@@ -49,14 +54,14 @@ bool Buffer::reserve(size_t n)
 		return true;
 
 	//Resize the array if we're requesting more bytes
-	bool result = 
+	bool result = resize(n); 
 
 #ifdef AEON_USE_AEON_CONSOLE_LIBRARY
 	if(result)
 		Console::debug("Buffer: Reserved %u bytes.", n);
 #endif
 
-	return resize(n);
+	return result;
 }
 
 bool Buffer::resize(size_t n)

@@ -1,4 +1,10 @@
-#include "Aeon/Aeon.h"
+#include "Aeon/Streams/Config.h"
+
+#include <string>
+#include <memory>
+
+#include "Aeon/Streams/Buffer.h"
+#include "Aeon/Streams/Stream.h"
 #include "Aeon/Streams/IOStream.h"
 
 #ifdef AEON_USE_AEON_CONSOLE_LIBRARY
@@ -97,10 +103,9 @@ size_t IOStream::read_line(std::string &str)
 		return 0;
 	}
 
-	//AEON_FILE_LINE_BUFFER_SIZE
 	std::string line;
 
-	for (int i = 0; i < AEON_STREAM_MAX_TEXT_LINE_LENGTH; ++i)
+	for (int i = 0; i < AEON_STREAMS_MAX_TEXT_LINE_LENGTH; ++i)
 	{
 		int c = fgetc(stdin);
 
@@ -120,8 +125,8 @@ size_t IOStream::read_line(std::string &str)
 
 bool IOStream::seek(size_t pos, SeekDirection direction)
 {
-	AEON_UNUSED(pos);
-	AEON_UNUSED(direction);
+	(void)(pos);
+	(void)(direction);
 
 	//This won't work for STDIN...
 	return false;

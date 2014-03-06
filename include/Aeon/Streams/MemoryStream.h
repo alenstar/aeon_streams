@@ -1,7 +1,5 @@
-#ifndef AeonMemoryStream_h__
-#define AeonMemoryStream_h__
-
-#include "Aeon/Streams/Stream.h"
+#ifndef AEON_STREAMS_MEMORY_STREAM_H__
+#define AEON_STREAMS_MEMORY_STREAM_H__
 
 namespace Aeon
 {
@@ -50,4 +48,4 @@ typedef std::shared_ptr<MemoryStream> MemoryStreamPtr;
 
 } //namespace Aeon
 
-#endif // AeonMemoryStream_h__
+#endif /* AEON_STREAMS_MEMORY_STREAM_H__ */
