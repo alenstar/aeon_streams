@@ -130,7 +130,7 @@ public:
 	 * \param buffer The buffer to write into the stream. This buffer must be atleast count in size.
 	 * \param count The amount of data to write into the stream (read from buffer)
 	 * \return The actual amount of bytes that were written. May be equal or less than count. Returns 0 on error.
-	 * \sa is_writable()
+	 * \sa is_writeable()
 	 */
 	virtual size_t					write(const void *buffer, size_t count) = 0;
 
@@ -142,18 +142,18 @@ public:
 	 *
 	 * \param buffer The buffer object to write into the stream. The whole contents of this BufferPtr will be written.
 	 * \return The actual amount of bytes that were written. May be equal or less than count. Returns 0 on error.
-	 * \sa is_writable()
-	 * \sa BufferPtr
+	 * \sa is_writeable()
+	 * \sa Buffer
 	 */
 	virtual size_t					write(BufferPtr buffer);
 
 	/*!
 	 * Read a line of text from the stream.
 	 *
-	 * This will read ascii characters until '\n' is found with a maximum of AEON_STREAMS_MAX_TEXT_LINE_LENGTH
+	 * This will read ascii characters until '\\n' is found with a maximum of AEON_STREAMS_MAX_TEXT_LINE_LENGTH
 	 * characters.
 	 *
-	 * Currently, other line ending types (for example Window's \r\n) are not supported.
+	 * Currently, other line ending types (for example Window's \\r\\n) are not supported.
 	 *
 	 * To be able to read from the stream, AccessMode::READ must have been set. This can also be checked with
 	 * is_readable(). This function will return 0 if reading is not possible or permitted.
@@ -174,11 +174,27 @@ public:
 	 *
 	 * \param str The string to be written into the stream.
 	 * \return The amount of characters written into the stream. Returns 0 on error.
-	 * \sa is_writable()
+	 * \sa is_writeable()
 	 */
 	virtual size_t					write(const std::string &str);
 
+	/*!
+	 * Seek to a certain position within the stream based on the SeekDirection.
+	 *
+	 * \param pos The offset to be used for seeking
+	 * \param direction The direction of seeking.
+	 * \return True if succeeded, false on fail.
+	 * \sa SeekDirection
+	 */
 	virtual bool					seek(size_t pos, SeekDirection direction) = 0;
+
+	/*!
+	 * Get the read/write position within the stream.
+	 *
+	 * This position changes on successful reading, writing and seeking.
+	 *
+	 * \return The position 
+	 */
 	virtual size_t					tell() const = 0;
 
 	virtual bool					eof() const = 0;
