@@ -3,6 +3,8 @@
 
 namespace Aeon
 {
+namespace Streams
+{
 
 class IOStream : public Stream
 {
@@ -27,6 +29,7 @@ public:
 	virtual BufferPtr				get_as_buffer();
 };
 
-} //namespace Aeon
+} /* namespace Streams */
+} /* namespace Aeon */
 
 #endif /* AEON_STREAMS_IOSTREAM_H__ */

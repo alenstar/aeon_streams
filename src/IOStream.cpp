@@ -13,6 +13,8 @@
 
 namespace Aeon
 {
+namespace Streams
+{
 
 IOStream::IOStream(int access_mode /*= AccessMode::READ*/)
 :
@@ -148,10 +150,11 @@ void IOStream::flush()
 	fflush(stdout);
 }
 
-Aeon::BufferPtr IOStream::get_as_buffer()
+BufferPtr IOStream::get_as_buffer()
 {
 	//This won't work for STDIN...
 	return AeonEmptyBuffer;
 }
 
-} //namespace Aeon
+} /* namespace Streams */
+} /* namespace Aeon */

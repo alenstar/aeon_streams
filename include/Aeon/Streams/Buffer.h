@@ -3,6 +3,8 @@
 
 namespace Aeon
 {
+namespace Streams
+{
 
 class Buffer
 {
@@ -54,6 +56,7 @@ private:
 typedef std::shared_ptr<Buffer> BufferPtr;
 #define AeonEmptyBuffer BufferPtr()
 
-} //namespace Aeon
+} /* namespace Streams */
+} /* namespace Aeon */
 
 #endif /* AEON_STREAMS_BUFFER_H__ */

@@ -3,6 +3,8 @@
 
 namespace Aeon
 {
+namespace Streams
+{
 
 class MemoryStream : public Stream
 {
@@ -46,6 +48,7 @@ protected:
 typedef std::shared_ptr<MemoryStream> MemoryStreamPtr;
 #define AeonEmptyMemoryStream MemoryStreamPtr;
 
-} //namespace Aeon
+} /* namespace Streams */
+} /* namespace Aeon */
 
 #endif /* AEON_STREAMS_MEMORY_STREAM_H__ */

@@ -14,6 +14,8 @@
 
 namespace Aeon
 {
+namespace Streams
+{
 
 MemoryStream::MemoryStream(DeleteMode delete_mode /*= DeleteMode::DeleteOnDestruct*/, int access_mode /*= AccessMode::READ_WRITE*/)
 :
@@ -238,4 +240,5 @@ BufferPtr MemoryStream::get_as_buffer()
 	return m_buffer;
 }
 
-} //namespace Aeon
+} /* namespace Streams */
+} /* namespace Aeon */

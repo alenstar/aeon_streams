@@ -12,6 +12,8 @@
 
 namespace Aeon
 {
+namespace Streams
+{
 
 Buffer::Buffer()
 :
@@ -158,5 +160,6 @@ void Buffer::set_delete_mode(DeleteMode mode)
 	m_delete_mode = mode;
 }
 
-} //namespace Aeon
+} /* namespace Streams */
+} /* namespace Aeon */
 

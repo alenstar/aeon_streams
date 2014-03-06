@@ -13,6 +13,8 @@
 
 namespace Aeon
 {
+namespace Streams
+{
 
 FileStream::FileStream(const std::string &path, int access_mode /*= AccessMode::READ*/)
 :
@@ -149,7 +151,6 @@ size_t FileStream::read_line(std::string &str)
 		return 0;
 	}
 
-	//AEON_FILE_LINE_BUFFER_SIZE
 	std::string line;
 
 	for (int i = 0; i < AEON_STREAMS_MAX_TEXT_LINE_LENGTH; ++i)
@@ -303,4 +304,5 @@ bool FileStream::good()
 	return m_file != NULL;
 }
 
-} //namespace Aeon
+} /* namespace Streams */
+} /* namespace Aeon */

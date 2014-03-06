@@ -8,5 +8,12 @@
 #include <string>
 #include <memory>
 
+#include <Aeon/Streams/Buffer.h>
+#include <Aeon/Streams/Stream.h>
+
+#include <Aeon/Streams/FileStream.h>
+#include <Aeon/Streams/IOStream.h>
+#include <Aeon/Streams/MemoryStream.h>
+
 #endif /* AEON_STREAMS_H__ */
 

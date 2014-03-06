@@ -12,6 +12,8 @@
 
 namespace Aeon
 {
+namespace Streams
+{
 
 Stream::Stream(int access_mode /*= AccessMode::READ*/)
 :
@@ -61,4 +63,5 @@ size_t Stream::write(BufferPtr buffer)
 	return write(buffer->get(), buffer->size());
 }
 
-} //namespace Aeon
+} /* namespace Streams */
+} /* namespace Aeon */
