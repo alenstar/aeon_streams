@@ -1,6 +1,9 @@
 #ifndef AEON_STREAMS_STREAM_H__
 #define AEON_STREAMS_STREAM_H__
-
+#include <iostream>
+#include <fstream>
+#include <memory>
+#include "Buffer.h"
 namespace Aeon
 {
 namespace Streams

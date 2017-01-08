@@ -6,6 +6,8 @@
 #endif /* HAVE_CONFIG_H */
 
 #include <string>
+#include <iostream>
+#include <fstream>
 #include <memory>
 
 #include <Aeon/Streams/Buffer.h>
